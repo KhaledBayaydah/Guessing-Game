@@ -1,0 +1,69 @@
+/**
+* guess a number from 1 to 10 to see if that number is the exact number as what teh computer randomly guesses.
+* 
+* @Khaled AlBayaydah
+* @June 24th of 2019(sorry for being late. I thought it's due at 7 pm).
+*/
+import java.util.*;
+
+public class guessingGame
+{
+
+public static void main(String args[])
+{
+    
+// a while loop to repeat the process if the user presses "1" at the end of the game
+int repeat_process=0;
+while (repeat_process < 1){
+int randomNum, number1_user, number2_quitorrepeat, reveal=0, max, min, count; // main integer variables
+System.out.println("This is the one and only guessing game");
+max = 10;
+min = 1;
+randomNum = (int)(Math.random() * ((max - min) + 1)) + min; //the random numbers' generator
+count = 0; // this variable is important to allow the user to try 3 times
+
+// a while loop to allow the user to try to guess the number 3 times
+while(count<=2){
+Scanner scan = new Scanner(System.in); // scanner method to get a number from the user
+System.out.println("Please guess a number between 1 and 10");
+number1_user = scan.nextInt();
+System.out.println("you chose the number=" + number1_user);
+  
+
+// if/else statement to reveal if teh user guess is correct or wrong as well as giving him more chances.
+if(randomNum == number1_user){
+    System.out.println("Winner");
+    count = 4;
+    reveal = 1;
+    }   
+else{
+    System.out.println("Sorry, wrong");
+    count++;}
+
+}
+if (count==3){
+    System.out.println("The random number is " + randomNum);
+    Scanner scan1 = new Scanner(System.in);
+    System.out.println("Press 1 if you want to replay. Press 2 if you want to quit");
+    number2_quitorrepeat = scan1.nextInt();
+    if (number2_quitorrepeat==1){
+        repeat_process = 0;
+    }
+    else if (number2_quitorrepeat==2){
+        System.out.println("Thank you for playing");
+        repeat_process = 2;}
+    }
+
+if (reveal==1){
+    Scanner scan1 = new Scanner(System.in);
+    System.out.println("Press 1 if you want to replay. Press 2 if you want to quit");
+    number2_quitorrepeat = scan1.nextInt();
+    if (number2_quitorrepeat==1){
+        repeat_process = 0;
+    }
+    else if (number2_quitorrepeat==2){
+        System.out.println("Thank you for playing");
+        repeat_process = 2;}
+    }
+
+}}}
